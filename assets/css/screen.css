@@ -1,0 +1,77 @@
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+  color: #101010;
+}
+
+#container {
+  margin-top: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#logo {
+  height: 80px;
+  width: 100%;
+  background-image: url('../media/sentral_logo_full.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-bottom: 32px;
+}
+
+section {
+  background-color: #f3f3f3;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.project-title {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.project-description {
+  margin-bottom: 16px;
+}
+
+a {
+  color: #0059FF;
+}
+
+.project-status {
+  font-weight: normal;
+  background-color: black;
+  color: white;
+  border-radius: 16px;
+  height: 16px;
+  padding: 6px 8px 6px 8px;
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 8px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+}
+
+.project-status--proposal {
+  background-color: #333;
+}
+
+.project-status--active {
+  background-color: #0059FF;
+}
+
+.project-status--paused {
+  background-color: #FF6C00;
+}
+
+.project-status--completed {
+  background-color: #6EC300;
+}
+
+.project-status--dropped {
+  background-color: transparent;
+  color: black;
+}

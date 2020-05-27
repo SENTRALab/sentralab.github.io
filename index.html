@@ -3,9 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" 
+      type="image/png" 
+      href="./assets/media/sentral_logo_single.png" />
+  <link rel="stylesheet" href="./assets/css/normalize.css"/>
+  <link rel="stylesheet" href="./assets/css/screen.css"/>
   <title>SENTRAL</title>
 </head>
 <body>
-  
+  <div id="container">
+    <div id="logo"></div>
+    <div id="projects">
+      Projects have not yet loaded, have failed to load, or Javascript is disabled.
+      <!--
+      Example below:
+      <section>
+        <div class="project-title">Yoo de manne <span class="project-status project-status--proposal">proposal</span></div>
+        <div class="project-description">Description goes here lol</div>
+        <div class="project-url"><a href="#">http://uwu.com</a></div>
+      </section>
+      -->
+    </div>
+  </div>
+
+  <script>
+    // Where to get projects.json from
+    const projectsUrl = "https://raw.githubusercontent.com/SENTRALab/Research/master/projects.json";
+    
+    // Used for navigation
+    const baseRepoUrl = "https://github.com/SENTRALab/Research/blob/master/";
+
+    fetch(projectsUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Clear all projects first
+        const projectContainerEl = document.getElementById("projects");
+        projectContainerEl.textContent = '';
+
+        data.forEach(project => {
+          // Project container
+          const projectEl = document.createElement("section");
+          
+          projectEl.appendChild(createProjectTitleElement(project.name, project.status));
+          projectEl.appendChild(createProjectDescriptionElement(project.description));
+          projectEl.appendChild(createProjectURLElement(project.directory));
+
+          projectContainerEl.appendChild(projectEl);
+        });
+
+        function createProjectTitleElement(title, status) {
+          const projectTitleEl = document.createElement("div");
+          projectTitleEl.classList.add("project-title");
+          projectTitleEl.appendChild(document.createTextNode(title));
+
+          const projectStatusEl = document.createElement("span");
+          projectStatusEl.classList.add("project-status", "project-status--" + status);
+          projectStatusEl.appendChild(document.createTextNode(status));
+
+          projectTitleEl.appendChild(projectStatusEl);
+
+          return projectTitleEl;
+        }
+
+        function createProjectDescriptionElement(description) {
+          const projectDescriptionEl = document.createElement("div");
+          projectDescriptionEl.classList.add("project-description");
+          projectDescriptionEl.appendChild(document.createTextNode(description));
+
+          return projectDescriptionEl;
+        }
+
+        function createProjectURLElement(directory) {
+          const linkHref = baseRepoUrl + directory;
+
+          const projectURLEl = document.createElement("div");
+          projectURLEl.classList.add("project-url");
+
+          const projectURLLinkEl = document.createElement("a");
+          projectURLLinkEl.setAttribute("href", linkHref);
+          projectURLLinkEl.appendChild(document.createTextNode(linkHref));
+
+          projectURLEl.appendChild(projectURLLinkEl);
+
+          return projectURLEl;
+        }
+      });
+  </script>
 </body>
 </html>
