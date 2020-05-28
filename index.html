@@ -46,8 +46,8 @@
           const projectEl = document.createElement("section");
           
           projectEl.appendChild(createProjectTitleElement(project.name, project.status));
-          projectEl.appendChild(createProjectDescriptionElement(project.description));
-          projectEl.appendChild(createProjectURLElement(project.directory));
+          projectEl.appendChild(createProjectDescriptionElement(project.description));          
+          project.directory && projectEl.appendChild(createProjectURLElement(project.directory));
 
           projectContainerEl.appendChild(projectEl);
         });
