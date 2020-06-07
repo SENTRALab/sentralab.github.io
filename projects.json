@@ -1,5 +1,11 @@
 [
   {
+    "name": "Dynamic Client-Authority Multiplayer",
+    "directory": "",
+    "description": "Most multiplayer applications are created with a server-side authority. Figure out what possibilities there are in creating a multiplayer environment with a dumb server and authoritative clients.",
+    "status": "proposal"
+  },
+  {
     "name": "Chess AI",
     "directory": "",
     "description": "Research into how existing Chess AI work, both the traditional and machine learning variants. Look into creating a few prototype Chess AI. The goal is to learn more about what makes a good Chess AI and have a few own prototypes. Making prototypes could give more insights in possible pitfalls of creating a Chess AI.",
